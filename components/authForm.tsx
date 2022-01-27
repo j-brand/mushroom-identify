@@ -1,7 +1,9 @@
 import { signIn, SignInResponse } from "next-auth/react";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { FunctionComponent, useRef, useState } from "react";
+import { FunctionComponent, useContext, useRef, useState } from "react";
+import NotificationContext from "../store/notification-context";
+import Notification from "./notification";
 
 interface Props {
   className: string;
@@ -28,6 +30,8 @@ const AuthForm: FunctionComponent<Props> = (props) => {
   const passwordInputRef = useRef<HTMLInputElement>(null);
   const [isLogin, setIsLogin] = useState(true);
   const router = useRouter();
+  const notificationCtx = useContext(NotificationContext);
+  const activeNotification = notificationCtx.notification;
 
   function switchAuthModeHandler() {
     setIsLogin((prevState) => !prevState);
@@ -46,15 +50,16 @@ const AuthForm: FunctionComponent<Props> = (props) => {
           email: enteredEmail,
           password: enteredPassword,
         });
-
         if (result && result.error) {
-          router.replace("/");
+          notificationCtx.showNotification({ title: "error", message: result.error, status: "error" });
+        }else{
+          router.replace('/');
         }
       } else {
         const email = enteredEmail;
         const password = enteredPassword;
         const result = await createUser(email, password);
-        console.log(result);
+        notificationCtx.showNotification({ title: "error", message: "sdad", status: "error" });
       }
     }
   }
@@ -102,7 +107,7 @@ const AuthForm: FunctionComponent<Props> = (props) => {
             <div>
               <button
                 type="submit"
-                className=" min-w-[250px] group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                className=" min-w-[250px] group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-sm text-white bg-mush hover:bg-mush focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
               >
                 {isLogin ? "Login" : "registrieren"}{" "}
               </button>
@@ -113,6 +118,7 @@ const AuthForm: FunctionComponent<Props> = (props) => {
           </form>
         </div>
       </div>
+      {activeNotification && <Notification title={activeNotification.title} message={activeNotification.message} status={activeNotification.status} />}
     </>
   );
 };

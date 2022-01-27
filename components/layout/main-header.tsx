@@ -6,13 +6,7 @@ import LogoutIcon from "../icons/logout-icon";
 
 const MainHeader: FunctionComponent = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const { data: session, status } = useSession();
-  console.log(status);
-
-  function logoutHandler(){
-    signOut();
-    
-  }
+  const { status } = useSession();
 
   const toggle = () => setIsOpen(!isOpen);
   return (
@@ -59,7 +53,7 @@ const MainHeader: FunctionComponent = () => {
             </div>
             <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
               {status === "authenticated" && (
-                <button onClick={logoutHandler}>
+                <button onClick={() => signOut()}>
                   <LogoutIcon className="text-white" />
                 </button>
               )}

@@ -43,9 +43,6 @@ const HabitusList: NextPage<Props> = (props) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  // must be async
-  /*   const response = await fetch(`${process.env.APP_URL}/api/habitus`);
-  const data = await response.json(); */
 
   const filePath = path.join(process.cwd(), "data", "habitus.json");
   const jsonData = await fs.readFile(filePath, "utf8");

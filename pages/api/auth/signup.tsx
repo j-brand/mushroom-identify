@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { connectToDatabase } from "../../../helpers/db";
+import { connectToDatabase, findDocument, insertDocument } from "../../../helpers/db";
 import { hashPassword } from "../../../helpers/auth";
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -11,28 +11,33 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const { email, password }: { email: string; password: string } = data;
 
   if (!email || !email.includes("@") || !password || password.trim().length < 8) {
-    res.status(422).json({ message: "Datenformat unzulässig (Das Passwort muss mindestes 8 Zeichen lang sein.)" });
+    res.status(200).json({ message: "Datenformat unzulässig (Das Passwort muss mindestes 8 Zeichen lang sein.)" });
     return;
   }
-  const client = await connectToDatabase();
 
-  const db = client.db();
+  let client;
 
-  const existingUser = await db.collection("users").findOne({ email: email });
+  try {
+    client = await connectToDatabase();
+  } catch (error) {
+    res.status(500).json({ message: "Verbindung zur Datenbank ist fehlgeschlagen!" });
+    return;
+  }
 
-  if (existingUser) {
-    res.status(422).json({ message: "Benutzer existiert bereits." });
+  try {
+    const existingUser = await findDocument(client, "users", { email: email });
+    if (existingUser) {
+      res.status(422).json({ message: "Benutzer existiert bereits." });
+      client.close();
+      return;
+    }
+    const hashedPassword = await hashPassword(password);
+    const userAdded = await insertDocument(client, "users", { email: email, password: hashedPassword, verified: false });
     client.close();
+  } catch (error) {
+    res.status(500).json({ message: "Benutzer konnte nicht angelegt werden." });
     return;
-  }
-  const hashedPassword = await hashPassword(password);
-
-  const result = await db.collection("users").insertOne({ email: email, password: hashedPassword, verified: false });
-
-  if(result){
-
   }
 
   res.status(201).json({ message: "Benutzer wurde erstellt!" });
-  client.close();
 };

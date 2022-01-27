@@ -77,9 +77,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const data = await getData();
   const habitus = data.find((habitus: IHabitus) => habitus.id === habitusId);
 
-  // must be async
-  /*   const response = await fetch(`${process.env.APP_URL}/api/habitus`);
-  const data = await response.json(); */
   return {
     props: {
       data: habitus,

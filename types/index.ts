@@ -32,4 +32,10 @@ interface IPage {
   name: string;
 }
 
-export type { IHabitus, IAnswer, IQuestion, IPage, ICharacteristic, IGenus };
+interface INotification {
+  title: string;
+  message: string;
+  status: string;
+}
+
+export type { IHabitus, IAnswer, IQuestion, IPage, ICharacteristic, IGenus, INotification };

@@ -1,4 +1,4 @@
-import { MongoClient } from "mongodb";
+import { Document, MongoClient, WithId } from "mongodb";
 
 export async function connectToDatabase(): Promise<MongoClient> {
   const user = process.env.MONGODB_USER;
@@ -9,4 +9,16 @@ export async function connectToDatabase(): Promise<MongoClient> {
   const client = await MongoClient.connect(`mongodb+srv://${user}:${password}@${cluster}/${database}?retryWrites=true&w=majority`);
 
   return client;
+}
+
+export async function insertDocument(client: MongoClient, collection: string, data: Document): Promise<boolean> {
+  const db = client.db();
+  await db.collection(collection).insertOne(data);
+  return true;
+}
+
+export async function findDocument(client: MongoClient, collection: string, criteria: Document): Promise<Document | null> {
+  const db = client.db();
+  const result = await db.collection(collection).findOne(criteria);
+  return result;
 }

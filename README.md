@@ -1,34 +1,31 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Mushroom Identify
 
-## Getting Started
+Mushroom Identify is a small private project that can be used to identify mushrooms faster.
 
-First, run the development server:
+## Background:
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+In order to expand my knowledge about the kingdom of mushrooms (Fungi), I attended a seminar with Dirk Harmel in Berlin.
+The contents of the course were based on a script - "Reiseführer ins Reich der Pilze", which was also written by Dirk Harmel. Part of this book is an identification key that makes it possible to identify most of the mushrooms growing in my area. In this process, fungi are classified into various nonsystematic habit groups based on their characteristics. These habitus can appear then again in different mushroom genera. The aim of this key is therefore not to obtain a species in the end, but the genera in which the mushrooms with the desired habit occur. Then, using a more comprehensive reference book, the exact species can be determined.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Since the script unfortunately has an inconvenient format to carry with me in the field, I decided to transfer the identification key and the habit groups into a web application. I can then simply call these up with my smartphone.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+To improve my web development skills as well and learn something new I decided to write my app in ReactJs.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Technologies and libraries used:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+[TypeScript](https://www.typescriptlang.org/)
+[ReactJs](https://reactjs.org/)
+[NextJs](https://nextjs.org/)
+[NextAuth](https://next-auth.js.org/)
+[MongoDB](https://www.mongodb.com/)
 
-## Learn More
+## Data
+Since this app is based on the content of "Reiseführer ins Reich der Pilze" by Dirk Harmel and I have no right to publish this data, only dummy data can be used in this repository.
 
-To learn more about Next.js, take a look at the following resources:
+## Installation
+* to be defined *
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Setup Authentication
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+* to be defined *
