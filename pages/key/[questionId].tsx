@@ -8,6 +8,7 @@ import Question from "../../components/question";
 import { IQuestion } from "../../types";
 import { ParsedUrlQuery } from "querystring";
 import Head from "next/head";
+import { connectToDatabase, findDocument } from "../../helpers/db";
 
 interface Props {
   data: IQuestion;
@@ -29,11 +30,10 @@ const QuestionPage: NextPage<Props> = (props) => {
 };
 
 async function getData(): Promise<IQuestion[]> {
-  const filePath = path.join(process.cwd(), "data", "questions.json");
-  const jsonData = await fs.readFile(filePath, "utf8");
-  const data = JSON.parse(jsonData);
+  const client = await connectToDatabase();
+  const rawData = await findDocument(client, "questions", {});
 
-  return data.questions;
+  return rawData!.toArray();
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {

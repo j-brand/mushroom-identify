@@ -1,7 +1,7 @@
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { verifyPassword } from "../../../helpers/auth";
-import { connectToDatabase, findDocument } from "../../../helpers/db";
+import { connectToDatabase, findDocument, findOneDocument } from "../../../helpers/db";
 
 export default NextAuth({
   providers: [
@@ -16,7 +16,7 @@ export default NextAuth({
         let client;
         try {
           client = await connectToDatabase();
-          user = await findDocument(client, "users", { email: credentials!.email });
+          user = await findOneDocument(client, "users", { email: credentials!.email });
         } catch (error) {
           throw new Error("Fehler bei der Verbindung!");
         }

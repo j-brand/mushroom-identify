@@ -8,6 +8,7 @@ import Link from "next/link";
 
 import { IHabitus } from "../../types/index";
 import Head from "next/head";
+import { connectToDatabase, findDocument } from "../../helpers/db";
 
 interface Props {
   data: IHabitus[];
@@ -42,14 +43,19 @@ const HabitusList: NextPage<Props> = (props) => {
   );
 };
 
+async function getData(): Promise<IHabitus[]> {
+  const client = await connectToDatabase();
+  const rawData = await findDocument(client, "habitus", {});
+
+  return rawData!.toArray();
+}
+
 export const getStaticProps: GetStaticProps = async () => {
 
-  const filePath = path.join(process.cwd(), "data", "habitus.json");
-  const jsonData = await fs.readFile(filePath, "utf8");
-  const data = JSON.parse(jsonData);
+  const data = await getData();
 
   //Filter Habitus (exclude not used Groups or dead ends from Key) + sort habitus in alphybetical order
-  const filteredData = data.habitus
+  const filteredData = data
     .filter((habitus: IHabitus) => !habitus.id.startsWith("h0"))
     .sort(function (a: IHabitus, b: IHabitus) {
       if (a.name < b.name) {

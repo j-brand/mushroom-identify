@@ -17,8 +17,14 @@ export async function insertDocument(client: MongoClient, collection: string, da
   return true;
 }
 
-export async function findDocument(client: MongoClient, collection: string, criteria: Document): Promise<Document | null> {
+export async function findOneDocument(client: MongoClient, collection: string, criteria: Document): Promise<Document | null> {
   const db = client.db();
   const result = await db.collection(collection).findOne(criteria);
+  return result;
+}
+
+export async function findDocument(client: MongoClient, collection: string, criteria: Document): Promise<Document | null> {
+  const db = client.db();
+  const result = await db.collection(collection).find(criteria, { projection: { _id: 0 } });
   return result;
 }

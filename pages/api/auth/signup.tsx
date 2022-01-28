@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { connectToDatabase, findDocument, insertDocument } from "../../../helpers/db";
+import { connectToDatabase, findDocument, findOneDocument, insertDocument } from "../../../helpers/db";
 import { hashPassword } from "../../../helpers/auth";
 
 // eslint-disable-next-line import/no-anonymous-default-export
@@ -25,7 +25,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   }
 
   try {
-    const existingUser = await findDocument(client, "users", { email: email });
+    const existingUser = await findOneDocument(client, "users", { email: email });
     if (existingUser) {
       res.status(422).json({ message: "Benutzer existiert bereits." });
       client.close();

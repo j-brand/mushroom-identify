@@ -4,6 +4,7 @@ import path from "path";
 import fs from "fs/promises";
 import { ParsedUrlQuery } from "querystring";
 import Head from "next/head";
+import { connectToDatabase, findDocument } from "../../helpers/db";
 
 interface Props {
   data: IHabitus;
@@ -49,12 +50,12 @@ const Habitus: NextPage<Props> = (props) => {
 };
 
 async function getData(): Promise<IHabitus[]> {
-  const filePath = path.join(process.cwd(), "data", "habitus.json");
-  const jsonData = await fs.readFile(filePath, "utf8");
-  const data = JSON.parse(jsonData);
+  const client = await connectToDatabase();
+  const rawData = await findDocument(client, "habitus", {});
 
-  return data.habitus;
+  return rawData!.toArray();
 }
+
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const data = await getData();
