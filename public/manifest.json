@@ -1,11 +1,11 @@
 {
     "theme_color": "#ffffff",
     "background_color": "#1c2a38",
-    "display": "browser",
     "scope": "/",
     "start_url": "/",
     "name": "Mushroom Identify",
     "short_name": "Mush-Ident",
+    "display": "standalone",
     "icons": [
         {
             "src": "/icon-192x192.png",
