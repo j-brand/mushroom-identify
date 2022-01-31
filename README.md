@@ -87,7 +87,6 @@ Password of your MongoDB user (Setup MongoDB 2.)
 
 - open ayour terminal and cd to the root directory of the application
 - run:
-
      
-    npm run migrate-dummy-data
+        npm run migrate-dummy-data
 
