@@ -11,8 +11,7 @@ const MainHeader: FunctionComponent = () => {
   const { status } = useSession();
 
   const logoutHandler = () => {
-    signOut();
-    window.location.href = "/login";
+    signOut({callbackUrl: "/login"});
   };
 
   const toggle = () => setIsOpen(!isOpen);
