@@ -1,4 +1,5 @@
-import { createContext, FunctionComponent, useState } from "react";
+import { useRouter } from "next/router";
+import { createContext, FunctionComponent, useEffect, useState } from "react";
 import { IQuestion, IAnswer } from "../types/index";
 
 interface HistoryStep {
@@ -9,7 +10,7 @@ interface HistoryStep {
 interface historyContext {
   steps: HistoryStep[];
   windowOpen: boolean;
-  setIsOpen: (value:boolean) => void;
+  setIsOpen: (value: boolean) => void;
   toggle: () => void;
   push: (step: HistoryStep) => void;
   pop: () => void;
@@ -32,6 +33,14 @@ const HistoryContext = createContext<historyContext>(HistoryContextDefault);
 export const HistoryContextProvider: FunctionComponent = (props) => {
   const [steps, setSteps] = useState<HistoryStep[]>(HistoryContextDefault.steps);
   const [windowOpen, setWindowOpen] = useState<boolean>(HistoryContextDefault.windowOpen);
+  const router = useRouter();
+
+  useEffect(() => {
+    router.beforePopState(() => {
+      pop();
+      return true;
+    });
+  });
 
   const toggle = () => {
     setWindowOpen(!windowOpen);
@@ -44,7 +53,7 @@ export const HistoryContextProvider: FunctionComponent = (props) => {
     setSteps(steps.concat(step));
   };
   const pop = () => {
-    setSteps(steps.slice(-1));
+    setSteps(steps.slice(0,-1));
   };
   const goto = (index: number) => {
     let cut = steps.length - index;

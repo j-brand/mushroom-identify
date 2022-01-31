@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { FunctionComponent, useContext } from "react";
+import { FunctionComponent, useContext, useEffect } from "react";
 import HistoryContext from "../store/history-context";
 import HistoryIcon from "./icons/history-icon";
 
@@ -10,6 +10,7 @@ const History: FunctionComponent = () => {
     historyCtx.setIsOpen(false);
     historyCtx.goto(index);
   };
+
 
   return (
     <div className={`fixed right-0 top-24 md:top-28 max-w-[70%] transform transition-all z-10 ${historyCtx.windowOpen ? "translate-x-0" : "translate-x-full"}`}>

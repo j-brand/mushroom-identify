@@ -1,0 +1,130 @@
+{
+    "list": [
+        {
+            "id": 1,
+            "text": "What is the shape?",
+            "answers": [
+                {
+                    "text": "a.) The fruiting body is round.",
+                    "next": 2
+                },
+                {
+                    "text": "b.) Fruiting body without head",
+                    "next": 1
+                },
+                {
+                    "text": "c.) Fruiting body angular",
+                    "next": "h1"
+                },
+                {
+                    "text": "d.) Fruiting body pyramidal",
+                    "next": 2
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "text": "Which colours can be seen?",
+            "answers": [
+                {
+                    "text": "a.) red and brown",
+                    "next": 3
+                },
+                {
+                    "text": "b.) all colors",
+                    "next": 3
+                },
+                {
+                    "text": "c.) white",
+                    "next": "h4"
+                },
+                {
+                    "text": "d.) Hut mit Leisten",
+                    "next": "h5"
+                },
+                {
+                    "text": "e.) brown to black",
+                    "next": 4
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "text": "How long is the stem?",
+            "answers": [
+                {
+                    "text": "a.) <= 2cm",
+                    "next": 4
+                },
+                {
+                    "text": "b.) 2cm - 5cm",
+                    "next": 5
+                },
+                {
+                    "text": "b.) > 5cm",
+                    "next": "h2"
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "text": "Does milk leak out when injured?",
+            "answers": [
+                {
+                    "text": "a.) yes",
+                    "next": 5
+                },
+                {
+                    "text": "b.) no",
+                    "next": "h4"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "text": "What does the mushroom smell like?",
+            "answers": [
+                {
+                    "text": "a.) like mushroom",
+                    "next": 6
+                },
+                {
+                    "text": "b.) nothing",
+                    "next": "h3"
+                },
+                {
+                    "text": "c.) like a sandwich",
+                    "next": 7
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "text": "What does the hat look like?",
+            "answers": [
+                {
+                    "text": "a.) flaky",
+                    "next": 7
+                },
+                {
+                    "text": "b.) smooth",
+                    "next": "h5"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "text": "What does the lamellas look like?",
+            "answers": [
+                {
+                    "text": "a.) serrated",
+                    "next": "h4"
+                },
+                {
+                    "text": "b.) smooth",
+                    "next": "h5"
+                }
+            ]
+        }
+    ]
+}

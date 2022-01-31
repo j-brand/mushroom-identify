@@ -1,0 +1,190 @@
+{
+    "list": [
+        {
+            "id": "h1",
+            "name": "Nice Mushroom Habitus",
+            "text": "",
+            "characteristics": [
+                {
+                    "name": "Fruit Body",
+                    "value": "Nice and Smooth",
+                    "special": false
+                },
+                {
+                    "name": "Size",
+                    "value": "middle",
+                    "special": false
+                },
+                {
+                    "name": "Color",
+                    "value": "white, gray",
+                    "special": true
+                },
+                {
+                    "name": "Smell",
+                    "value": "like mushroom",
+                    "special": false
+                },
+                {
+                    "name": "Habitat",
+                    "value": "Mountains",
+                    "special": false
+                }
+            ],
+            "genera": [
+                1,
+                2,
+                3,
+                9
+            ]
+        },
+        {
+            "id": "h2",
+            "name": "Water Shroom Habitus",
+            "text": "",
+            "characteristics": [
+                {
+                    "name": "Fruit Body",
+                    "value": "Like a Giant",
+                    "special": false
+                },
+                {
+                    "name": "Size",
+                    "value": "enormous",
+                    "special": true
+                },
+                {
+                    "name": "Color",
+                    "value": "red and blue",
+                    "special": false
+                },
+                {
+                    "name": "Smell",
+                    "value": "trivial",
+                    "special": true
+                },
+                {
+                    "name": "Habitat",
+                    "value": "sea and beaches",
+                    "special": true
+                }
+            ],
+            "genera": [
+                4,
+                5,
+                6
+            ]
+        },
+        {
+            "id": "h3",
+            "name": "Gold Habitus",
+            "text": "",
+            "characteristics": [
+                {
+                    "name": "Fruit Body",
+                    "value": "Very Nice",
+                    "special": true
+                },
+                {
+                    "name": "Size",
+                    "value": "small",
+                    "special": false
+                },
+                {
+                    "name": "Color",
+                    "value": "shiny",
+                    "special": false
+                },
+                {
+                    "name": "Smell",
+                    "value": "nothing",
+                    "special": false
+                },
+                {
+                    "name": "Habitat",
+                    "value": "under the surface",
+                    "special": false
+                }
+            ],
+            "genera": [
+                7,
+                8,
+                9
+            ]
+        },
+        {
+            "id": "h4",
+            "name": "Velvet-Habitus",
+            "text": "",
+            "characteristics": [
+                {
+                    "name": "Fruit Body",
+                    "value": "Super soft and velvety",
+                    "special": false
+                },
+                {
+                    "name": "Size",
+                    "value": "middle",
+                    "special": true
+                },
+                {
+                    "name": "Color",
+                    "value": "crimson",
+                    "special": false
+                },
+                {
+                    "name": "Smell",
+                    "value": "no smell at all",
+                    "special": true
+                },
+                {
+                    "name": "Habitat",
+                    "value": "wardrobe",
+                    "special": false
+                }
+            ],
+            "genera": [
+                10,
+                2,
+                4
+            ]
+        },
+        {
+            "id": "h5",
+            "name": "Magic Habitus",
+            "text": "",
+            "characteristics": [
+                {
+                    "name": "Fruit Body",
+                    "value": "shiny",
+                    "special": false
+                },
+                {
+                    "name": "Size",
+                    "value": "super small",
+                    "special": true
+                },
+                {
+                    "name": "Color",
+                    "value": "all colors",
+                    "special": false
+                },
+                {
+                    "name": "Smell",
+                    "value": "just like magic",
+                    "special": false
+                },
+                {
+                    "name": "Habitat",
+                    "value": "everywhere",
+                    "special": false
+                }
+            ],
+            "genera": [
+                5,
+                7,
+                9
+            ]
+        }
+    ]
+}

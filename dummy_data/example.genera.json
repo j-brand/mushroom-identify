@@ -1,0 +1,44 @@
+{
+    "list": [
+        {
+            "id": 1,
+            "name": "Russula"
+        },
+        {
+            "id": 2,
+            "name": "Lactarius, Lactifluus"
+        },
+        {
+            "id": 3,
+            "name": "Multifurca (not in Europe)"
+        },
+        {
+            "id": 4,
+            "name": "Amanita"
+        },
+        {
+            "id": 5,
+            "name": "Lapiota"
+        },
+        {
+            "id": 6,
+            "name": "Leucoagaricus"
+        },
+        {
+            "id": 7,
+            "name": "Leucocoprinus"
+        },
+        {
+            "id": 8,
+            "name": "Echinoderma"
+        },
+        {
+            "id": 9,
+            "name": "Russulaceae"
+        },
+        {
+            "id": 10,
+            "name": "Melanophyllum"
+        }
+    ]
+}

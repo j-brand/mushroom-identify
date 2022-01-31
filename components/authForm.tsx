@@ -52,14 +52,16 @@ const AuthForm: FunctionComponent<Props> = (props) => {
         });
         if (result && result.error) {
           notificationCtx.showNotification({ title: "error", message: result.error, status: "error" });
-        }else{
-          router.replace('/');
+        } else {
+          router.replace("/key/1");
         }
       } else {
         const email = enteredEmail;
         const password = enteredPassword;
-        const result = await createUser(email, password);
-        notificationCtx.showNotification({ title: "error", message: "sdad", status: "error" });
+        const result: any = await createUser(email, password);
+        if (result && result.message) {
+          notificationCtx.showNotification({ title: "Success", message: result.message, status: "success" });
+        }
       }
     }
   }

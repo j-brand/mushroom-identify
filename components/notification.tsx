@@ -2,6 +2,7 @@ import { FunctionComponent, useContext } from "react";
 import NotificationContext from "../store/notification-context";
 import { INotification } from "../types";
 import ErrorIcon from "./icons/error-icon";
+import SuccessIcon from "./icons/success-icon";
 
 const Notification: FunctionComponent<INotification> = (props) => {
   const notificationCtx = useContext(NotificationContext);
@@ -25,6 +26,7 @@ const Notification: FunctionComponent<INotification> = (props) => {
   return (
     <div className={classesCombined} onClick={notificationCtx.hideNotification}>
       {status === "error" && <ErrorIcon className=" h-14" />}
+      {status === "success" && <SuccessIcon className=" h-14" />}
       <div className="px-5">
         <h2 className="uppercase font-bold">{title}</h2>
         <p>{message}</p>

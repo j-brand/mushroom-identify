@@ -33,7 +33,7 @@ const HabitusList: NextPage<Props> = (props) => {
           return (
             <li key={h.id} className={`${firstBold ? " first-letter:font-bold" : ""}`}>
               <Link href={`/habitus/${h.id}`}>
-                <a className="px-4 py-2 block hover:bg-gray-100 rounded-md">{h.name}</a>
+                <a className="px-4 py-2 block text-xl hover:bg-gray-100 rounded-md">{h.name}</a>
               </Link>
             </li>
           );

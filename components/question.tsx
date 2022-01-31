@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { FunctionComponent, useContext, useEffect, useRef, useState } from "react";
+import { FunctionComponent, useContext, useEffect, useState } from "react";
 import HistoryContext from "../store/history-context";
 import { IAnswer, IQuestion } from "../types";
 
@@ -34,12 +34,12 @@ const Question: FunctionComponent<Props> = (props) => {
   };
 
   return (
-    <div className="w-full md:max-w-sm mt-4 md:mt-12">
+    <div className="md:max-w-sm mt-4 mx-4 md:mt-12">
       <h3 className="font-bold text-xl">{question.text}</h3>
 
       <ul>
         {question.answers.map((answer, index) => (
-          <li className="cursor-pointer hover:bg-gray-100 py-3 rounded-sm" key={index} onClick={answerCLickHandler(answer)}>
+          <li className="cursor-pointer text-xl pl-7 -indent-7 hover:bg-gray-100 py-3 rounded-sm" key={index} onClick={answerCLickHandler(answer)}>
             {answer.text}
           </li>
         ))}

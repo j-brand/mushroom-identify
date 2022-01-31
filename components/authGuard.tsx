@@ -1,12 +1,10 @@
 import { useSession } from "next-auth/react";
-import { useRouter } from "next/router";
-import { FunctionComponent, useEffect } from "react";
+import { FunctionComponent } from "react";
 
 interface Props {}
 
 const AuthGuard: FunctionComponent<Props> = (props) => {
-  const { data: session, status } = useSession();
-  const router = useRouter();
+  const { status } = useSession();
 
   if (status === "loading") {
     return <p>Loading...</p>;
