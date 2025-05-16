@@ -53,11 +53,11 @@ RUN su node -c "umask 0002 && npm install -g ${NODE_MODULES}" \
     && npm cache clean --force > /dev/null 2>&1
 
 #RUN Custom Script
-COPY toyscript.sh /tmp/custom-scripts/
-RUN bash /tmp/custom-scripts/toyscript.sh "${USERNAME}"\
-    && rm -rf /tmp/custom-scripts                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      /lib/apt/lists/*
-COPY .p10k.zsh .zshrc /home/${USERNAME}/
-RUN exec zsh
+#COPY toyscript.sh /tmp/custom-scripts/
+#RUN bash /tmp/custom-scripts/toyscript.sh "${USERNAME}"\
+#    && rm -rf /tmp/custom-scripts                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      /lib/apt/lists/*
+#COPY .p10k.zsh .zshrc /home/${USERNAME}/
+#RUN exec zsh
 
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
